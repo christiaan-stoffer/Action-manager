@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.stofferit.nl/Schema/ActionManager_v1"
+           xmlns="http://www.stofferit.nl/Schema/ActionManager_v1"
+           xmlns:t="http://www.stofferit.nl/Schema/ActionManager_v1" elementFormDefault="qualified">
+
+  <xs:element name="solution" type="solutionType">
+
+    <xs:unique name="UK_Action_Name">
+      <xs:selector xpath="./t:actions/t:action"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+    <xs:unique name="UK_Category_Name">
+      <xs:selector xpath=".//t:category"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+    <xs:key name="PK_Setting">
+      <xs:selector xpath="./t:configuration/t:settings/t:setting"/>
+      <xs:field xpath="@key"/>
+    </xs:key>
+    <xs:key name="PK_Action">
+      <xs:selector xpath="./t:actions/t:action"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="PK_Category">
+      <xs:selector xpath=".//t:category"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+    <xs:key name="PK_Module">
+      <xs:selector xpath="./t:configuration/t:modules/t:module"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+
+
+    <xs:key name="PK_Resource">
+      <xs:selector xpath="./t:configuration/t:resources/t:add"/>
+      <xs:field xpath="@id"/>
+    </xs:key>
+
+    <xs:keyref name="FK_Action_SettingReference" refer="PK_Setting">
+      <xs:selector xpath="./t:actions/t:action/t:settings/t:add"/>
+      <xs:field xpath="@id"/>
+    </xs:keyref>
+
+    <xs:keyref name="FK_Modules_Default" refer="PK_Module">
+      <xs:selector xpath="./t:configuration/t:modules/t:default"/>
+      <xs:field xpath="."/>
+    </xs:keyref>
+
+    <xs:keyref name="FK_Action_Module" refer="PK_Module">
+      <xs:selector xpath="./t:actions/t:action/t:module"/>
+      <xs:field xpath="."/>
+    </xs:keyref>
+
+    <xs:keyref name="FK_Action_Resource" refer="PK_Resource">
+      <xs:selector xpath="./t:actions/t:action"/>
+      <xs:field xpath="@resource"/>
+    </xs:keyref>
+
+    <xs:keyref name="FK_Category_Action" refer="PK_Action">
+      <xs:selector xpath=".//t:category/t:add"/>
+      <xs:field xpath="."/>
+    </xs:keyref>
+  </xs:element>
+
+  <xs:complexType name="solutionType">
+    <xs:complexContent>
+      <xs:extension base="descriptableType">
+        <xs:sequence>
+          <xs:element name="configuration" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="modules" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="module" minOccurs="1" maxOccurs="unbounded" type="moduleType"/>
+                      <xs:element name="default" minOccurs="0" maxOccurs="1" type="identifier"></xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+
+                <xs:element name="resources" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element name="add" minOccurs="1" maxOccurs="unbounded" type="resourceType"/>
+                    </xs:sequence>
+                    <xs:attribute name="base" use="optional">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Optional attribute specifying where resources must be searched from (starting path).
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:attribute>
+                  </xs:complexType>
+                </xs:element>
+                
+                <xs:element name="settings" minOccurs="0">
+                  <xs:complexType>
+                    <xs:choice>
+                      <xs:element name="setting" type="settingType" minOccurs="0" maxOccurs="unbounded" />
+                    </xs:choice>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="actions" maxOccurs="1" minOccurs="1">
+            <xs:complexType>
+              <xs:choice>
+                <xs:element name="action" type="actionType" minOccurs="1" maxOccurs="unbounded" />
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+
+          <xs:element name="categories" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:choice>
+                <xs:element name="category" type="categoryType"/>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="identifier">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z0-9-_.]{1,50}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="resourceType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="identifier" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="settingType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" use="required" type="identifier"></xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="itemType">
+    <xs:complexContent>
+      <xs:extension base="descriptableType">
+        <xs:attribute name="id" type="identifier" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="descriptableType">
+    <xs:sequence>
+      <xs:element name="description" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="xs:string"></xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="name" use="required">
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="moduleType">
+    <xs:complexContent>
+      <xs:extension base="itemType">
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="actionType">
+    <xs:complexContent>
+      <xs:extension base="itemType">
+        <xs:sequence>
+          <xs:element name="module" minOccurs="0" type="identifier">
+          </xs:element>
+          <xs:element name="settings" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="add">
+                  <xs:complexType>
+                    <xs:attribute name="key" use="required" />
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+        <xs:attribute name="resource" type="identifier"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+
+  <xs:complexType name="categoryType">
+    <xs:complexContent>
+      <xs:extension base="itemType">
+        <xs:sequence>
+          <xs:element name="items">
+            <xs:complexType>
+              <xs:all>
+                <xs:element name="add" minOccurs="1" type="identifier">
+                </xs:element>
+                <xs:element name="category" minOccurs="0" type="categoryType">
+                </xs:element>
+              </xs:all>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>

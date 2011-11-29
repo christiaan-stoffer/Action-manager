@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<solution xmlns="http://www.stofferit.nl/Schema/ActionManager_v1" name="Mijn mooie oplossing">
+  <description>
+    Met deze oplossing wordt bla die bla....
+  </description>
+  <configuration>
+    <modules>
+      <module id="MyModule" name="Module"></module>
+      <default>MyModule</default>
+    </modules>
+    <resources base="C:\">
+      <add id="whoot">temp\blaat.txt</add>
+    </resources>
+    <settings>
+      <setting key="Dit.Is">Ik ben een instelling</setting>
+    </settings>
+  </configuration>
+
+  <actions>
+    <action id="action.1" name="Mijn actie"/>
+
+    <action id="action.2" name="Mijn actie 2">
+      <module>MyModule</module>
+      <settings>
+        <add key="Dit.Is"/>
+      </settings>
+    </action>
+  </actions>
+
+  <categories>
+    <category id="test" name="Een test categorie">
+      <description>
+        Om te kijken of alles naar behoren werkt hier een test categorie.
+      </description>
+      <items>
+        <add>action.1</add>
+        <category id="test.test" name="Een test categorie sub">
+          <items>
+            <add>action.2</add>
+          </items>
+        </category>
+      </items>
+    </category>
+  </categories>
+  
+</solution>
