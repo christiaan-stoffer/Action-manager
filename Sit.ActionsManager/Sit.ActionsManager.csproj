@@ -52,9 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Proxy\proxy.cd" />
-    <None Include="Xsd\solution.xsd">
+    <EmbeddedResource Include="Xsd\solution.xsd">
       <SubType>Designer</SubType>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Xsd\test.xml" />

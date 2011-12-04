@@ -1,0 +1,8 @@
+﻿<Window x:Class="Sit.ActionsManager.Gui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" xmlns:my="clr-namespace:Sit.ActionsManager.Gui.Controls;assembly=Sit.ActionsManager.Gui.Controls">
+    <Grid>
+        <my:ActionManager HorizontalAlignment="Stretch" Name="actionManager1" VerticalAlignment="Stretch"  />
+    </Grid>
+</Window>
