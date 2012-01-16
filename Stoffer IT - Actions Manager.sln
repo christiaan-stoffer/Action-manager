@@ -11,6 +11,31 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sit.ActionsManager.Gui", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sit.ActionsManager.Gui.Controls", "Sit.ActionsManager.Gui.Controls\Sit.ActionsManager.Gui.Controls.csproj", "{B4FE567B-16C3-480F-900A-68E5FA37EBF2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{D0E42284-2FDB-4DA4-8983-CAE7D40D35CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StructureMap2.6.1", "StructureMap2.6.1", "{80F46109-5055-4AFE-BE8E-9690B7AF9D07}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\StructureMap2.6.1\LICENSE.TXT = Lib\StructureMap2.6.1\LICENSE.TXT
+		Lib\StructureMap2.6.1\Rhino.Mocks.dll = Lib\StructureMap2.6.1\Rhino.Mocks.dll
+		Lib\StructureMap2.6.1\StructureMap.AutoMocking.dll = Lib\StructureMap2.6.1\StructureMap.AutoMocking.dll
+		Lib\StructureMap2.6.1\StructureMap.AutoMocking.xml = Lib\StructureMap2.6.1\StructureMap.AutoMocking.xml
+		Lib\StructureMap2.6.1\StructureMap.chm = Lib\StructureMap2.6.1\StructureMap.chm
+		Lib\StructureMap2.6.1\StructureMap.dll = Lib\StructureMap2.6.1\StructureMap.dll
+		Lib\StructureMap2.6.1\StructureMap.xml = Lib\StructureMap2.6.1\StructureMap.xml
+		Lib\StructureMap2.6.1\StructureMapDoctor.exe = Lib\StructureMap2.6.1\StructureMapDoctor.exe
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sit.ActionsManager.Test", "Sit.ActionsManager.Test\Sit.ActionsManager.Test.csproj", "{011AEC38-F6C0-41D0-B94C-C391AC1DC696}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Moq.4.0.10827", "Moq.4.0.10827", "{3F3ED135-957E-4918-A41C-FC049EC0E37D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET40", "NET40", "{4CE50973-1B63-4D3C-94E1-F14E79FD5E52}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\Moq.4.0.10827\NET40\Moq.dll = Lib\Moq.4.0.10827\NET40\Moq.dll
+		Lib\Moq.4.0.10827\NET40\Moq.pdb = Lib\Moq.4.0.10827\NET40\Moq.pdb
+		Lib\Moq.4.0.10827\NET40\Moq.xml = Lib\Moq.4.0.10827\NET40\Moq.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +86,16 @@ Global
 		{B4FE567B-16C3-480F-900A-68E5FA37EBF2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{B4FE567B-16C3-480F-900A-68E5FA37EBF2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{B4FE567B-16C3-480F-900A-68E5FA37EBF2}.Release|x86.ActiveCfg = Release|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{011AEC38-F6C0-41D0-B94C-C391AC1DC696}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,5 +104,8 @@ Global
 		{0224165D-626B-4C98-8418-1B740DDD98A9} = {D94AFBDC-8B69-4FBD-971C-ADBF0E4AD8E1}
 		{71199F86-1903-46B8-8C46-463DCF3098DB} = {D94AFBDC-8B69-4FBD-971C-ADBF0E4AD8E1}
 		{B4FE567B-16C3-480F-900A-68E5FA37EBF2} = {D94AFBDC-8B69-4FBD-971C-ADBF0E4AD8E1}
+		{80F46109-5055-4AFE-BE8E-9690B7AF9D07} = {D0E42284-2FDB-4DA4-8983-CAE7D40D35CD}
+		{3F3ED135-957E-4918-A41C-FC049EC0E37D} = {D0E42284-2FDB-4DA4-8983-CAE7D40D35CD}
+		{4CE50973-1B63-4D3C-94E1-F14E79FD5E52} = {3F3ED135-957E-4918-A41C-FC049EC0E37D}
 	EndGlobalSection
 EndGlobal

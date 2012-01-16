@@ -59,7 +59,7 @@
     </xs:keyref>
 
     <xs:keyref name="FK_Category_Action" refer="PK_Action">
-      <xs:selector xpath=".//t:category/t:add"/>
+      <xs:selector xpath=".//t:category/t:item/t:action"/>
       <xs:field xpath="."/>
     </xs:keyref>
   </xs:element>
@@ -204,14 +204,14 @@
     <xs:complexContent>
       <xs:extension base="itemType">
         <xs:sequence>
-          <xs:element name="items">
+          <xs:element name="item" maxOccurs="unbounded">
             <xs:complexType>
-              <xs:all>
-                <xs:element name="add" minOccurs="1" type="identifier">
+              <xs:choice>
+                <xs:element name="action" minOccurs="1" type="identifier">
                 </xs:element>
-                <xs:element name="category" minOccurs="0" type="categoryType">
+                <xs:element name="category" minOccurs="1" type="categoryType">
                 </xs:element>
-              </xs:all>
+              </xs:choice>
             </xs:complexType>
           </xs:element>
         </xs:sequence>
