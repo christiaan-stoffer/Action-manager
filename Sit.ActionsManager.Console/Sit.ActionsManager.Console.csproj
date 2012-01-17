@@ -62,12 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sit.ActionsManager\Sit.ActionsManager.csproj">
-      <Project>{C82AE6EB-98E4-48AC-B8FF-E26CA31C3151}</Project>
-      <Name>Sit.ActionsManager</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>

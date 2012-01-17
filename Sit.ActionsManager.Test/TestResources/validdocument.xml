@@ -35,6 +35,16 @@
       <item>
         <action>action.2</action>
       </item>
+      <item>
+        <category id="test2" name="A sub category">
+          <description>
+            Harrow?
+          </description>
+          <item>
+            <action>action.1</action>
+          </item>
+        </category>
+      </item>
     </category>
   </categories>
   

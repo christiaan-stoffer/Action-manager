@@ -44,7 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Externals\IFileSystem.cs" />
-    <Compile Include="IO\SolutionParser.cs" />
+    <Compile Include="IO\SolutionXmlParser.cs" />
+    <Compile Include="IO\SolutionXmlSession.cs" />
+    <Compile Include="IO\SolutionXmlValidator.cs" />
+    <Compile Include="IO\XElementExtensions.cs" />
     <Compile Include="Proxy\Action.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proxy\ActionGroup.cs" />
@@ -52,6 +55,8 @@
     <Compile Include="Proxy\Descriptable.cs" />
     <Compile Include="Proxy\Item.cs" />
     <Compile Include="Proxy\Module.cs" />
+    <Compile Include="Proxy\ObjectContainer.cs" />
+    <Compile Include="Proxy\Settings.cs" />
     <Compile Include="Proxy\Solution.cs" />
   </ItemGroup>
   <ItemGroup>

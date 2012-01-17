@@ -17,7 +17,9 @@
   </configuration>
 
   <actions>
-    <action id="action.1" name="Mijn actie"/>
+    <action id="action.1" name="Mijn actie">
+      <description>Blaat</description>
+    </action>
 
     <action id="action.2" name="Mijn actie 2">
       <module>MyModule</module>
@@ -34,6 +36,13 @@
       </description>
       <item>
         <action>action.2</action>
+      </item>
+      <item>
+        <category id="test2" name="An other cateogry">
+          <item>
+            <action>action.1</action>
+          </item>
+        </category>
       </item>
     </category>
   </categories>
